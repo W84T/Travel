@@ -71,6 +71,7 @@ networks:
 
   traefik:
     external: true
+    name: web
 
 volumes:
   app_data:
