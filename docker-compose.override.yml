@@ -1,0 +1,21 @@
+
+version: '3.8'
+
+services:
+  app:
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./apps/web/src:/app/apps/web/src
+      - ./apps/api/src:/app/apps/api/src
+    ports:
+      - "9229:9229" # Node.js debug port
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+    command: npm run dev
+
+  pocketbase:
+    command: serve --http=0.0.0.0:8090 --dev

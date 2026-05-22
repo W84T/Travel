@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxury Theme - Light Mode */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 43 74% 49%;
+    --radius: 1rem;
+
+    /* Semantic Colors */
+    --primary: 222 47% 15%; /* Deep Royal Blue */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 43 74% 49%; /* Luxury Gold */
+    --secondary-foreground: 222 47% 11%;
+    
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 15%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+  }
+
+  .dark {
+    /* Luxury Theme - Dark Mode */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 43 74% 49%;
+
+    --primary: 210 40% 98%; 
+    --primary-foreground: 222 47% 15%;
+    
+    --secondary: 43 74% 49%; 
+    --secondary-foreground: 222 47% 11%;
+    
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  /* Typography based on direction */
+  [dir="rtl"] body, [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6, [dir="rtl"] input, [dir="rtl"] textarea, [dir="rtl"] select, [dir="rtl"] button {
+    font-family: 'Tajawal', sans-serif;
+  }
+  
+  [dir="ltr"] body, [dir="ltr"] input, [dir="ltr"] textarea, [dir="ltr"] select, [dir="ltr"] button {
+    font-family: 'DM Sans', sans-serif;
+  }
+  [dir="ltr"] h1, [dir="ltr"] h2, [dir="ltr"] h3, [dir="ltr"] h4, [dir="ltr"] h5, [dir="ltr"] h6 {
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-balance;
+  }
+  
+  p {
+    @apply leading-relaxed max-w-[70ch];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass-panel {
+    @apply bg-background/80 backdrop-blur-lg border border-border/50 shadow-xl;
+  }
+  .luxury-gradient {
+    @apply bg-gradient-to-r from-primary via-primary/90 to-primary/80;
+  }
+  .gold-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-yellow-200;
+  }
+}
