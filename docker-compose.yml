@@ -11,16 +11,17 @@ services:
 
     networks:
       - tourism_net
-      - traefik
+      - web # Directly use 'web' here to eliminate naming confusion
 
     restart: unless-stopped
 
     labels:
       - traefik.enable=true
-      - traefik.http.routers.test.rule=Host(`test.alam-aldyara.com`)
-      - traefik.http.routers.test.entrypoints=websecure
-      - traefik.http.routers.test.tls.certresolver=le
-      - traefik.http.services.test.loadbalancer.server.port=80
+      # Changed from 'test' to 'tourism_prod' to prevent VPS service collisions
+      - traefik.http.routers.tourism_prod.rule=Host(`test.alam-aldyara.com`)
+      - traefik.http.routers.tourism_prod.entrypoints=websecure
+      - traefik.http.routers.tourism_prod.tls.certresolver=le
+      - traefik.http.services.tourism_prod_service.loadbalancer.server.port=80
       - traefik.docker.network=web
 
   app:
@@ -45,9 +46,9 @@ networks:
   tourism_net:
     driver: bridge
 
-  traefik:
+  # Defined clearly to match what your global Traefik stack expects
+  web:
     external: true
-    name: web
 
 volumes:
   app_data:
