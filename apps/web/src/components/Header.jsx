@@ -23,7 +23,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link to="/" className="text-2xl font-serif font-bold tracking-tight text-primary">
-          LuxeVoyage
+          toursim in malaysia
         </Link>
         
         {/* Desktop Navigation */}
@@ -67,7 +67,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side={language === 'ar' ? 'right' : 'left'} className="w-[300px] sm:w-[400px]">
               <SheetTitle className="text-2xl font-serif font-bold text-primary mb-8 mt-4">
-                LuxeVoyage
+                toursim in malaysia
               </SheetTitle>
               <nav className="flex flex-col gap-4">
                 {navLinks.map((link) => (

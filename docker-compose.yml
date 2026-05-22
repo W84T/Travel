@@ -51,6 +51,9 @@ services:
     volumes:
       - pb_data:/pb/pb_data
 
+    environment:
+      PB_ENCRYPTION_KEY: ${PB_ENCRYPTION_KEY}
+
     command: serve --http=0.0.0.0:8090 --hooksWatch=false
 
     networks:
