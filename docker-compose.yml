@@ -51,7 +51,10 @@ services:
     volumes:
       - pb_data:/pb_data
 
-    command: serve --http=0.0.0.0:8090
+    environment:
+      PB_ENCRYPTION_KEY: "dev_only_static_key_1234567890123456"
+
+    command: serve --http=0.0.0.0:8090 --hooksWatch=false
 
     networks:
       - tourism_net
